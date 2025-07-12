@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shafayat's Hacker Terminal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      background: black;
+      color: #00ffcc;
+      font-family: 'Consolas', monospace;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0; left: 0;
+      z-index: -1;
+    }
+
+    .terminal-bar {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: #111;
+      font-size: 14px;
+      border-bottom: 2px solid #00ffcc44;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .terminal-bar::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .terminal-bar::-webkit-scrollbar-thumb {
+      background-color: #00ffcc40;
+    }
+
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+      margin-right: 6px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .red { background-color: #ff5f56; }
+    .yellow { background-color: #ffbd2e; }
+    .green { background-color: #27c93f; }
+
+    .typewriter {
+      display: inline-block;
+      white-space: nowrap;
+      animation: typing 4s steps(50, end), blink-caret .8s step-end infinite;
+      overflow: hidden;
+      border-right: 2px solid #00ffcc;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      0%, 100% { border-color: transparent }
+      50% { border-color: #00ffcc }
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+      max-width: 1400px;
+      margin: auto;
+      gap: 20px;
+    }
+
+    .section {
+      flex: 1 1 48%;
+      min-width: 300px;
+      background-color: rgba(17, 17, 17, 0.93);
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #00ffcc33;
+      box-shadow: 0 0 15px #00ffcc66;
+      transition: transform 0.4s;
+      overflow-x: auto;
+    }
+
+    .section:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 25px #00ffeeaa;
+    }
+
+    .section pre {
+      white-space: pre-wrap;
+      font-size: 14.5px;
+      word-break: break-word;
+    }
+
+    .profile-pic {
+      width: 100%;
+      max-width: 200px;
+      display: block;
+      border: 4px solid #00ffcc;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 30px #00ffee55;
+      transition: all 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+    }
+
+    a {
+      color: #00ffcc;
+    }
+
+    a:hover {
+      color: #00ffaa;
+    }
+
+    .blue   { color: #4FC1FF; }
+    .green-text  {
+	  color: #00ff9c;
+	  background: transparent !important;
+	  }
+    .purple { color: #FF73FA; }
+    .cyan   { color: #00ffff; }
+    .orange { color: #FFD580; }
+
+    @media (max-width: 900px) {
+      .section {
+        flex: 1 1 100%;
+      }
+
+      .terminal-bar {
+        font-size: 12.5px;
+        padding: 10px;
+      }
+
+      .typewriter {
+        font-size: 13px;
+      }
+
+      .section pre {
+        white-space: pre;
+		overflow-x: auto;
+		word-wrap: normal;
+		font-size: 14.5px;
+      }
+    }
+	  .section pre::-webkit-scrollbar {
+		height: 6px;
+	  }
+	  .section pre::-webkit-scrollbar-thumb {
+		background: #00ffcc55;
+		border-radius: 4px;
+	  }
+    @media (max-width: 600px) {
+      .typewriter {
+        font-size: 12px;
+      }
+
+      .section pre {
+        font-size: 12.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MATRIX RAIN BACKGROUND -->
+<canvas id="matrixRain"></canvas>
+
+<!-- Terminal Title Bar -->
+<div class="terminal-bar">
+  <span class="terminal-dot red"></span>
+  <span class="terminal-dot yellow"></span>
+  <span class="terminal-dot green"></span>
+  <span class="typewriter">~/terminal_login → ./recon.sh --full_profile</span>
+</div>
+
+<!-- Content Sections -->
+<div class="container">
+  <!-- Left Panel -->
+  <div class="section">
+    <img src="pic.jpg" alt="Shafayat" class="profile-pic">
+<pre>
+<span class="blue">public enum</span> <span class="orange">PLATFORMS</span> <br>{
+<span class="green-text">¦</span>  Windows,
+<span class="green-text">¦</span>  Linux,
+<span class="green-text">¦</span>  Mobile
+}
+
+<span class="blue">public enum</span> <span class="orange">SKILLS</span> <br>{
+<span class="green-text">¦</span>  Cyber Security Researcher,
+<span class="green-text">¦</span>  Ethical Hacker,
+<span class="green-text">¦</span>  Bug Bounty Hunter,
+<span class="green-text">¦</span>  CTF Player,
+<span class="green-text">¦</span>  OSINT Expert
+}
+
+<span class="blue">public enum</span> <span class="orange">LANGUAGE</span> <br>{
+<span class="green-text">¦</span>  ENGLISH    <span class="green-text">// Fluent</span>,
+<span class="green-text">¦</span>  BANGLA     <span class="green-text">// Native</span>,
+<span class="green-text">¦</span>  URDU/HINDI <span class="green-text">// Conversational</span>
+}
+
+<span class="blue">public static class</span> <span class="orange">SOCIAL_MEDIA</span> <br>{
+<span class="green-text">¦</span>  <span class="blue">public void</span> Connect() <br><span class="green-text">¦</span>  {
+<span class="green-text">¦</span>  <span class="green-text">¦</span>  <span class="blue">var</span> LinkedIn = <a href="https://linkedin.com/in/iamshafayat" target="_blank">"Click_Me"</a>;
+<span class="green-text">¦</span>  <span class="green-text">¦</span>  <span class="blue">var</span> Medium   = <a href="https://medium.com/@iamshafayat" target="_blank">"Click_Me"</a>;
+<span class="green-text">¦</span>  <span class="green-text">¦</span>  <span class="blue">var</span> GitHub   = <a href="https://github.com/iamshafayat" target="_blank">"Click_Me"</a>;
+<span class="green-text">¦</span>  <span class="green-text">¦</span>  <span class="green-text">/*
+<span class="green-text">¦</span>  <span class="green-text">¦</span>    These are my cyber-frequency handles.
+<span class="green-text">¦</span>  <span class="green-text">¦</span>    Ping me anytime you smell 0day.
+<span class="green-text">¦</span>  <span class="green-text">¦</span>  */</span>
+<span class="green-text">¦</span>  }
+}
+</pre>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="section">
+<pre>
+<span class="green-text">/// &lt;summary&gt;
+/// Hello there, I am Shafayat Ahmed Alif, 
+/// Cybersecurity Researcher & Ethical Hacker. 
+/// Specialized in Red Teaming, Web App Security, and OSINT.  
+/// Cyber Security Researcher | Bug Bounty Hunter | CTF Player. 
+/// Skilled in Vulnerability Analysis, Penetration Testing, and Threat Hunting. 
+/// Turning vulnerabilities into opportunities for stronger defense.
+/// Always available for pwnage. 
+/// &lt;/summary&gt;</span>
+
+<span class="blue">public class</span> <span class="cyan">INFORMATION</span> <br>{
+<span class="green-text">¦</span>  <span class="blue">public string</span> NAME = <span class="purple">"Shafayat Ahmed Alif"</span>;
+<span class="green-text">¦</span>  <span class="blue">public string</span> TITLE = <span class="purple">"Security Researcher"</span>;
+<span class="green-text">¦</span>  <span class="blue">public string</span> EMAIL = <span class="purple">"shafayatahmedalif@gmail.com"</span>;
+<span class="green-text">¦</span>  <span class="blue">public string[]</span> LOCATION = {<span class="purple">"Dhaka, Bangladesh"</span>};
+<span class="green-text">¦</span>  <span class="blue">public int</span> AGE = <span class="green-text">25</span>;
+}
+
+<span class="blue">public partial class</span> <span class="cyan">FORMATIONS</span> : <span class="orange">Higher_Education</span> <br>{
+<span class="green-text">¦</span>  <span class="blue">private void</span> ICAN(<span class="blue">string[]</span> <span class="purple">_Degrees</span>) <br><span class="green-text">¦</span>  {
+<span class="green-text">¦</span>  <span class="green-text">¦</span>  <span class="blue">var</span> _Level = <span class="cyan">"Bachelor"</span>;
+<span class="green-text">¦</span>  <span class="green-text">¦</span>  <span class="blue">var</span> _Duration = <span class="cyan">"Jan 2023 - Present"</span>;
+<span class="green-text">¦</span>  <span class="green-text">¦</span>  <span class="blue">var</span> _Focus = <span class="cyan">"Programming, Hacking, Networking, OSINT"</span>;
+<span class="green-text">¦</span>  }
+}
+
+<span class="blue">public class</span> <span class="cyan">EXPERIENCE</span> <br>{
+<span class="green-text">¦</span>  <span class="blue">public string</span> Role1 = <span class="purple">"Security Researcher @ HackerOne"</span>;
+<span class="green-text">¦</span>  <span class="blue">public string</span> Role2 = <span class="purple">"Security Researcher @ Bugcrowd"</span>;
+<span class="green-text">¦</span>  <span class="blue">public string</span> Role3 = <span class="purple">"Pentester @ Cipher Shadow IT"</span>;
+<span class="green-text">¦</span>  <span class="blue">public string</span> Role4 = <span class="purple">"Security Researcher @ Gray Hat Squad"</span>;
+<span class="green-text">¦</span>  <span class="blue">public string[]</span> CTF = {<span class="purple">"Pirates of The Dead Flag"</span>};
+<span class="green-text">¦</span>  <span class="blue">public int</span> AGE = <span class="green-text">25</span>;
+}
+</pre>
+  </div>
+</div>
+
+<!-- Matrix JavaScript -->
+<script>
+  const canvas = document.getElementById('matrixRain');
+  const ctx = canvas.getContext('2d');
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+
+  const matrix = "01".split("");
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = new Array(Math.floor(columns)).fill(1);
+
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#00ffcc";
+    ctx.font = fontSize + "px Consolas";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = matrix[Math.floor(Math.random() * matrix.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 50);
+</script>
+
+</body>
+</html>
